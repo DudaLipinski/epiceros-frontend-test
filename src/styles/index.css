@@ -1,0 +1,19 @@
+:root {
+  --adm-color-primary: #357edd;
+
+  --adm-color-success: #00b578;
+  --adm-color-warning: #ff8f1f;
+  --adm-color-danger: #ff3141;
+
+  --adm-color-white: #ffffff;
+  --adm-color-sapphire: #001b44;
+  --adm-color-black: rgba(0, 0, 0, 0);
+  --adm-color-black-300: rgba(0, 0, 0, .3);
+  --adm-color-black-600: rgba(0, 0, 0, .6);
+}
+
+body {
+  height: 100vh;
+  font-family: sans-serif;
+  margin: 0;
+}
