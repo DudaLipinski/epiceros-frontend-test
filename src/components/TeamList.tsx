@@ -33,7 +33,7 @@ export const TeamList = () => {
   })
 
   return (
-    <Styled.List>
+    <Styled.List data-testid="team-list">
       {itemList}
       <li>Maria</li>
     </Styled.List>

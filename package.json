@@ -27,8 +27,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "prepare": "husky install"
-
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +52,8 @@
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",
     "@commitlint/config-conventional": "^17.4.4",
+    "@testing-library/cypress": "^9.0.0",
+    "cypress": "^12.9.0",
     "husky": "^8.0.3"
   }
 }
