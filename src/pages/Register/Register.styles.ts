@@ -3,8 +3,13 @@ import background from '../../assets/background.svg'
 
 export const Wrapper = styled.main`
   display: flex;
+  flex-direction: row;
   align-items: center;
   height: 100vh;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 export const EmployeesColumn = styled.section`
@@ -17,6 +22,13 @@ export const EmployeesColumn = styled.section`
   background-color: var(--adm-color-primary);
   background-image: url(${background});
   padding: 2rem 4rem;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 2rem 2rem;
+  }
 `
 
 export const Title = styled.h1`
@@ -24,12 +36,22 @@ export const Title = styled.h1`
   font-size: 3rem;
   color: var(--adm-color-white);
   line-height: 1.15;
+
+  @media (max-width: 768px) {
+    font-size: 2.6rem;
+    margin: 0.3em 0.8em 0.3em 0;
+  }
 `
 
 export const Content = styled.section`
   box-sizing: border-box;
   max-width: 32rem;
   padding-left: 4rem;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    padding: 2rem 2rem;
+  }
 `
 
 export const SecondaryTitle = styled.h2`
@@ -37,6 +59,10 @@ export const SecondaryTitle = styled.h2`
   margin-bottom: 4rem;
   font-size: 1.5rem;
   color: var(--adm-color-sapphire);
+
+  @media (max-width: 768px) {
+    margin-bottom: 1rem;
+  }
 `
 
 export const Subtitle = styled.h3`
