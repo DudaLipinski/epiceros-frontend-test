@@ -1,18 +1,39 @@
 import styled from 'styled-components'
-import { Team } from '../types/team'
+import { useTeam } from '../queries/team'
+import { getErrorMessage } from '../utils/api'
 
 const Styled = {
   List: styled.ul`
     padding-left: 1rem;
     line-height: 1.5;
     color: var(--adm-color-white);
+
+    li:last-child {
+      opacity: 0.1;
+    }
   `,
 }
 
-export const TeamList = ({ team }: { team: Team }) => {
-  const itemList = team.map((employee) => (
-    <li key={employee.name}>{employee.name}</li>
-  ))
+export const TeamList = () => {
+  const { data: team, isError, error, isLoading } = useTeam()
 
-  return <Styled.List>{itemList}</Styled.List>
+  if (isLoading) {
+    return <div>Loading</div>
+  }
+
+  if (isError) {
+    return <div>{getErrorMessage(error)}</div>
+  }
+
+  const itemList = team?.map((employee, index) => {
+    const { name } = employee
+    return <li key={`${name}-${index}`}>{name}</li>
+  })
+
+  return (
+    <Styled.List>
+      {itemList}
+      <li>Maria</li>
+    </Styled.List>
+  )
 }

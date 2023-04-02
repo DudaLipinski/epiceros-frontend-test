@@ -1,23 +1,14 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { TeamList } from '../../components/TeamList'
-import { useEmployeeCreation, useTeam } from '../../queries/team'
+import { useEmployeeCreation } from '../../queries/team'
 import { Employee } from '../../types/team'
 import { Button } from '../../components/Button'
-import { getErrorMessage } from '../../utils/api'
 import * as Styled from './Register.styles'
 
 const Register = () => {
   const { register, handleSubmit } = useForm<Employee>()
-  const { data, isError, error } = useTeam()
   const { mutate } = useEmployeeCreation()
 
-  const errorMessage = isError ? <div>{getErrorMessage(error)}</div> : null
-
-  const itemsList = data ? (
-    <TeamList team={data} />
-  ) : (
-    <p>Create the first employee</p>
-  )
   const onSubmit: SubmitHandler<Employee> = (employee) => mutate(employee)
 
   return (
@@ -29,8 +20,7 @@ const Register = () => {
           <br />
           team
         </Styled.Title>
-        {errorMessage}
-        {itemsList}
+        <TeamList />
       </Styled.Aside>
       <Styled.FormWrapper>
         <Styled.SecondaryTitle>Register</Styled.SecondaryTitle>
