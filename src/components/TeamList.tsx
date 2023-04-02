@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { useTeam } from '../queries/team'
 import { getErrorMessage } from '../utils/api'
+import { Alert } from './Alert'
 
 const Styled = {
   List: styled.ul`
@@ -22,7 +23,7 @@ export const TeamList = () => {
   }
 
   if (isError) {
-    return <div>{getErrorMessage(error)}</div>
+    return <Alert $severity="error">{getErrorMessage(error)}</Alert>
   }
 
   const itemList = team?.map((employee, index) => {

@@ -1,7 +1,6 @@
 import styled, { FlattenSimpleInterpolation, css } from 'styled-components'
+import { Color, Variant } from '../types/theme'
 
-type Color = 'primary'
-type Variant = 'text' | 'solid' | 'outlined'
 const variantStyles: Record<
   Variant,
   (color: Color) => FlattenSimpleInterpolation

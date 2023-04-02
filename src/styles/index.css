@@ -1,9 +1,11 @@
 :root {
   --adm-color-primary: #357edd;
+  --adm-color-secondary: #0e54b1;
 
   --adm-color-success: #00b578;
   --adm-color-warning: #ff8f1f;
-  --adm-color-danger: #ff3141;
+  --adm-color-info: #1fcbff;
+  --adm-color-error: #ff3141;
 
   --adm-color-white: #ffffff;
   --adm-color-sapphire: #001b44;
