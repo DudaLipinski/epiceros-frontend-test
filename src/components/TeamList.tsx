@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { useTeam } from '../queries/team'
 import { getErrorMessage } from '../utils/api'
 import { Alert } from './Alert'
+import { Loader } from './Loader'
 
 const Styled = {
   List: styled.ul`
@@ -19,7 +20,7 @@ export const TeamList = () => {
   const { data: team, isError, error, isLoading } = useTeam()
 
   if (isLoading) {
-    return <div>Loading</div>
+    return <Loader />
   }
 
   if (isError) {
