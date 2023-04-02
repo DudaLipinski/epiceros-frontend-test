@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { Register } from '../pages/Register'
+import Register from '../pages/Register'
 import { REGISTER } from './routeSpecs'
 
 export const AppRoutes = () => {

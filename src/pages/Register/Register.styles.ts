@@ -8,7 +8,11 @@ export const Wrapper = styled.div`
 
 export const Aside = styled.aside`
   box-sizing: border-box;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 15em;
   height: 100%;
+
   background-color: var(--adm-color-primary);
   padding: 2rem 4rem;
 `
@@ -72,30 +76,10 @@ export const InputText = styled.input`
   width: 100%;
   height: 2rem;
   margin: 0.3rem 0;
+
   border-radius: 0.25rem;
-  padding-left: 0.5rem;
   border: 1px solid var(--adm-color-black-300);
+  padding-left: 0.5rem;
   line-height: 1.15;
   font-size: 100%;
-`
-
-export const Button = styled.button`
-  margin-top: 1rem;
-  padding: 0.5rem 2rem;
-  border-radius: 0.25rem;
-  border-style: none;
-  font-size: 100%;
-  line-height: 1.15;
-  cursor: pointer;
-  transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
-
-  :hover {
-    transform: scale(1.05);
-    transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
-  }
-`
-
-export const PrimaryButton = styled(Button)`
-  color: var(--adm-color-white);
-  background-color: var(--adm-color-primary);
 `

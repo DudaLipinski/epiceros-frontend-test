@@ -1,11 +1,13 @@
-import { TeamList } from '../components/TeamList'
-import { useTeam, useEmployeeCreation } from '../queries/team'
-import { Employee } from '../types/team'
-import { getErrorMessage } from '../utils/api'
-import { Button } from '../components/Button'
+import { SubmitHandler, useForm } from 'react-hook-form'
+import { TeamList } from '../../components/TeamList'
+import { useEmployeeCreation, useTeam } from '../../queries/team'
+import { Employee } from '../../types/team'
+import { Button } from '../../components/Button'
+import { getErrorMessage } from '../../utils/api'
 import * as Styled from './Register.styles'
 
-export const Register = () => {
+const Register = () => {
+  const { register, handleSubmit } = useForm<Employee>()
   const { data, isError, error } = useTeam()
   const { mutate } = useEmployeeCreation()
 
@@ -16,12 +18,7 @@ export const Register = () => {
   ) : (
     <p>Create the first employee</p>
   )
-
-  const employee: Employee = { name: 'maria', email: 'duda@hotmail.com' }
-
-  const createEmployee = () => {
-    mutate(employee)
-  }
+  const onSubmit: SubmitHandler<Employee> = (employee) => mutate(employee)
 
   return (
     <Styled.Wrapper>
@@ -44,14 +41,24 @@ export const Register = () => {
           Together we re-define the experience of online gaming through
           gamification and novel technical solutions.
         </Styled.Text>
-        <Styled.Form>
-          <Styled.InputText type="text" placeholder="Name" />
-          <Styled.InputText type="text" placeholder="Email" />
+        <Styled.Form onSubmit={handleSubmit(onSubmit)}>
+          <Styled.InputText
+            type="text"
+            placeholder="Name"
+            required
+            {...register('name')}
+          />
+          <Styled.InputText
+            type="email"
+            placeholder="Email"
+            required
+            {...register('email')}
+          />
           <label>
-            <input type="checkbox" name="terms" />I agree to the terms
+            <input type="checkbox" name="terms" required />I agree to the terms
             <span> and I'll bring nice fika every friday ;)</span>
           </label>
-          <Button variant="solid" color="primary" onClick={createEmployee}>
+          <Button variant="solid" color="primary">
             I'm in, sign me up!
           </Button>
         </Styled.Form>
@@ -59,3 +66,5 @@ export const Register = () => {
     </Styled.Wrapper>
   )
 }
+
+export default Register
