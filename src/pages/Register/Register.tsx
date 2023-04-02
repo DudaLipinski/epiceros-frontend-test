@@ -13,7 +13,7 @@ const Register = () => {
 
   return (
     <Styled.Wrapper>
-      <Styled.Aside>
+      <Styled.EmployeesColumn>
         <Styled.Title>
           Join <br />
           the
@@ -21,8 +21,8 @@ const Register = () => {
           team
         </Styled.Title>
         <TeamList />
-      </Styled.Aside>
-      <Styled.FormWrapper>
+      </Styled.EmployeesColumn>
+      <Styled.Content>
         <Styled.SecondaryTitle>Register</Styled.SecondaryTitle>
         <Styled.Subtitle>
           Team player - Be positive - Beat yesterday
@@ -36,12 +36,14 @@ const Register = () => {
             type="text"
             placeholder="Name"
             required
+            aria-label="Name"
             {...register('name')}
           />
           <Styled.InputText
             type="email"
             placeholder="Email"
             required
+            aria-label="E-mail"
             {...register('email')}
           />
           <label>
@@ -52,7 +54,7 @@ const Register = () => {
             I'm in, sign me up!
           </Button>
         </Styled.Form>
-      </Styled.FormWrapper>
+      </Styled.Content>
     </Styled.Wrapper>
   )
 }

@@ -1,12 +1,13 @@
 import styled from 'styled-components'
+import background from '../../assets/background.svg'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.main`
   display: flex;
   align-items: center;
   height: 100vh;
 `
 
-export const Aside = styled.aside`
+export const EmployeesColumn = styled.section`
   box-sizing: border-box;
   flex-grow: 0;
   flex-shrink: 0;
@@ -14,6 +15,7 @@ export const Aside = styled.aside`
   height: 100%;
 
   background-color: var(--adm-color-primary);
+  background-image: url(${background});
   padding: 2rem 4rem;
 `
 
@@ -24,7 +26,7 @@ export const Title = styled.h1`
   line-height: 1.15;
 `
 
-export const FormWrapper = styled.div`
+export const Content = styled.section`
   box-sizing: border-box;
   max-width: 32rem;
   padding-left: 4rem;
